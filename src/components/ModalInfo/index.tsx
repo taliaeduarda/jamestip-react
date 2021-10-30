@@ -8,26 +8,25 @@ import {
   Heading,
 } from "@chakra-ui/react";
 
-import EditProduct from "../Form/EditProduct";
+// import EditProduct from "../Form/EditProduct";
 
-interface Product {
-  name: string;
-  provider: string;
-  code: number;
-  category: string;
-  price: string;
-  amount: number;
-  createdAt: string;
-}
+// interface Product {
+//   id: string;
+//   name: string;
+//   provider: string;
+//   code: number;
+//   category: string;
+//   price: string;
+//   amount: number;
+// }
 
 interface ModalInfoProps {
   isOpen: boolean;
   onClose: () => void;
-  product: Product[];
+  product: string;
 }
 
 export function ModalInfo({ isOpen, onClose, product }: ModalInfoProps) {
-  console.log(product);
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="6xl">
@@ -48,7 +47,7 @@ export function ModalInfo({ isOpen, onClose, product }: ModalInfoProps) {
         </ModalHeader>
 
         <ModalBody bgColor="gray.10" p={8}>
-          <EditProduct onClose={onClose} product={product} />
+          {/* <EditProduct onClose={onClose} product={product} /> */}
         </ModalBody>
       </ModalContent>
     </Modal>

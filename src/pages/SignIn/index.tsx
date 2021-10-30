@@ -1,4 +1,4 @@
-import { Flex, Button, Stack, Image, FormLabel } from "@chakra-ui/react";
+import { Flex, Button, Stack, FormLabel } from "@chakra-ui/react";
 import { useHistory } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -6,7 +6,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useAuth } from "../../hooks/useAuth";
 
 import { Input } from "../../components/Form/Input";
-import logo from "../../assets/images/james-logo.png";
 import { FcGoogle } from "react-icons/fc";
 
 type SignInFormData = {
@@ -45,9 +44,7 @@ export default function SignIn() {
 
   return (
     <Flex w="100vw" h="100vh" align="center" justify="center" flexDir="column">
-      <Flex maxWidth={400} p="4">
-        <Image src={logo} alt="JamesTip logo" objectFit="cover" />
-      </Flex>
+
       <Flex
         as="form"
         width="100%"

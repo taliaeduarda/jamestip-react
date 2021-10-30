@@ -6,17 +6,22 @@ import Routes from "./routes";
 import { ProductsProvider } from "./contexts/useProducts";
 import { AuthContextProvider } from "./contexts/AuthContext";
 
+import { QueryClientProvider } from "react-query";
+import { queryClient } from "./services/queryClient";
+
 function App() {
   return (
-    <BrowserRouter>
-      <AuthContextProvider>
-        <ProductsProvider>
-          <ChakraProvider resetCSS theme={theme}>
-            <Routes />
-          </ChakraProvider>
-        </ProductsProvider>
-      </AuthContextProvider>
-    </BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <AuthContextProvider>
+          <ProductsProvider>
+            <ChakraProvider resetCSS theme={theme}>
+              <Routes />
+            </ChakraProvider>
+          </ProductsProvider>
+        </AuthContextProvider>
+      </BrowserRouter>
+    </QueryClientProvider>
   );
 }
 

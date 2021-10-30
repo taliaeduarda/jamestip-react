@@ -14,12 +14,11 @@ type ProductFormData = {
   category: string;
   price: string;
   amount: number;
-  createdAt: string;
 };
 
 interface CreateProductProps {
   onClose: () => void;
-  product: ProductFormData[];
+  product: ProductFormData;
 }
 
 export default function EditProduct({ onClose, product }: CreateProductProps) {
@@ -61,13 +60,13 @@ export default function EditProduct({ onClose, product }: CreateProductProps) {
         p={[4]}
         onSubmit={handleSubmit(handleUpdateProduct)}
       >
-        {product.map((prod) => (
-          <Box key={prod.code}>
+       
+          <Box key={product.code}>
             <Button
               variant="outline"
               float="right"
               leftIcon={<AiOutlineDelete />}
-              onClick={() => handleRemoveProduct(prod.code)}
+              onClick={() => handleRemoveProduct(product.code)}
             >
               Remover Produto
             </Button>
@@ -81,7 +80,7 @@ export default function EditProduct({ onClose, product }: CreateProductProps) {
               >
                 <InputEdit
                   type="string"
-                  defaultValue={prod.name}
+                  defaultValue={product.name}
                   label="Nome do produto"
                   error={errors.name}
                   {...register("name")}
@@ -90,7 +89,7 @@ export default function EditProduct({ onClose, product }: CreateProductProps) {
                 <InputEdit
                   type="string"
                   label="Price"
-                  defaultValue={prod.price}
+                  defaultValue={product.price}
                   error={errors.price}
                   {...register("price")}
                 />
@@ -98,7 +97,7 @@ export default function EditProduct({ onClose, product }: CreateProductProps) {
               <SimpleGrid minChildWidth="240px" w="70%" alignSelf="flex-start">
                 <InputEdit
                   type="number"
-                  defaultValue={prod.amount.toString()}
+                  defaultValue={product.amount.toString()}
                   label="Quantidade"
                   error={errors.amount}
                   {...register("amount")}
@@ -106,7 +105,7 @@ export default function EditProduct({ onClose, product }: CreateProductProps) {
 
                 <InputEdit
                   type="number"
-                  defaultValue={prod.code.toString()}
+                  defaultValue={product.code.toString()}
                   label="Código"
                   error={errors.code}
                   {...register("code")}
@@ -115,7 +114,7 @@ export default function EditProduct({ onClose, product }: CreateProductProps) {
               <SimpleGrid minChildWidth="240px" w="70%" alignSelf="flex-start">
                 <InputEdit
                   type="text"
-                  defaultValue={prod.provider}
+                  defaultValue={product.provider}
                   label="Fornecedor"
                   error={errors.provider}
                   {...register("provider")}
@@ -123,7 +122,7 @@ export default function EditProduct({ onClose, product }: CreateProductProps) {
 
                 <InputEdit
                   type="text"
-                  defaultValue={prod.category}
+                  defaultValue={product.category}
                   label="Categoria"
                   error={errors.category}
                   {...register("category")}
@@ -131,7 +130,7 @@ export default function EditProduct({ onClose, product }: CreateProductProps) {
               </SimpleGrid>
             </VStack>
           </Box>
-        ))}
+     
 
         <Flex></Flex>
         <Flex mt="8" justify="flex-end">
